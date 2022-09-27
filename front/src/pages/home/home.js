@@ -5,7 +5,7 @@ import "./home.css"
 
 const Home = () => {
     return ( 
-        <div className="container">
+        <div className=" container">
             <div className="titulo">Home</div>
             <FontAwesomeIcon icon={faPlane}/>
             <form action="#">

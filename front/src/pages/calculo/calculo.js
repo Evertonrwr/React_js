@@ -1,30 +1,20 @@
 import "./calculo.css"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowLeft,faPlaneArrival} from '@fortawesome/free-solid-svg-icons'
+import InputCadastros from "../../componentes/inputCadastros/inputCadastro";
 
 const Calculo = () => {
     return ( 
         <div className="cont">    
-        <a href="home.html"><FontAwesomeIcon icon={faArrowLeft}/></a>          
+        <a href="./"><FontAwesomeIcon icon={faArrowLeft}/></a>          
         <div className="titulo">Cálculo de pouso</div>
         <FontAwesomeIcon icon={faPlaneArrival}/>
         <form action="#">
             <div className="detalhes-aeronave">
-                
-                <div className="input-box">
-                    <span className="details">Modelo da aeronave</span>
-                    <input type="text" placeholder="Modelo da aeronave" required/>
-                </div>
+                <InputCadastros id="Modelo-de-aeronave" type="text" placeholder="Digite o Modelo">Modelo de Aeronave</InputCadastros>
+                <InputCadastros id="Motor" type="text" placeholder="Digite o Motor">Motor</InputCadastros>
+                <InputCadastros id="Certificaçao" type="text" placeholder="Digite a Certificação">Certificação</InputCadastros>
 
-                <div className="input-box">
-                    <span className="details">Motor</span>
-                    <input type="text" placeholder="Motor da aeronave" required/>
-                </div>
-
-                <div className="input-box">
-                    <span className="details">Certificação</span>
-                    <input type="text" placeholder="Certificação da aeronave" required/>
-                </div>
 
                 <div className="input-box">
                     <span className="details">Peso</span>

@@ -1,6 +1,6 @@
 
 // import './App.css';
-import { BrowserRouter as Router,Routes, Route} from 'react-router-dom'
+import { BrowserRouter as Router,Routes, Route, Navigate} from 'react-router-dom'
 import CadastroAeronave from './pages/cadastro-aeronave/cadastro-aeronave';
 import CadastroUsuario from './pages/Cadastro-usuario/cadastro-usuario';
 import Calculo from './pages/calculo/calculo';
@@ -13,17 +13,13 @@ function App() {
     <Router>
     <div className="content">
       <Routes>
-            <Route exact path="/" element={<Home/>}>
-            </Route>            
-            <Route exact path="/login" element={<Login/>}>
-            </Route>
-            <Route exact path="/Cadastro-Aeronave" element={<CadastroAeronave/>}>
-            </Route>
-            <Route exact path="/Cadastro-usuario" element={<CadastroUsuario/>}>
-            </Route>
-            <Route exact path="/Calculo" element={<Calculo/>}>
-            </Route>
-        </Routes>
+            <Route exact path="/" element={<Home/>} />
+            <Route exact path="/login" element={<Login/>} />
+            <Route exact path="/Cadastro-Aeronave" element={<CadastroAeronave/>} />
+            <Route exact path="/Cadastro-usuario" element={<CadastroUsuario/>} />
+            <Route exact path="/Calculo" element={<Calculo/>} />
+            <Route path="*" element={<Navigate to="/" />} />
+      </Routes>
      </div>
       </Router>
       </div>

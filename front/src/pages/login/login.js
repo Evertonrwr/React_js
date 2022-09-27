@@ -6,7 +6,7 @@ import Botao from "../../componentes/botao/botao";
 
 const Login = () => {
     return ( 
-        <div id="form">
+        <div id="formL" className="corpoL">
         <form action="">
             <h2 className="title">Login</h2>
             <InputLogin text="Email " id="email" placeholder="Digite seu email" type="text" icon={faEnvelope} />
