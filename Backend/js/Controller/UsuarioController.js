@@ -20,29 +20,33 @@ UsuarioController.post("/CadastrarUsuario", (req, res) => __awaiter(void 0, void
     if (req.body.constructor === Object && Object.keys(req.body).length === 0) {
         res.json({
             ok: false,
-            menssagem: "Por favor, preencha os dados para realizar o cadastro."
+            mensagem: "Por favor, preencha os dados para realizar o cadastro."
         });
     }
     else {
         try {
-            var resposta = yield UsuarioModel_1.default.create({
+            yield UsuarioModel_1.default.create({
                 email: dados.email,
                 nome: dados.nome,
-                senha: dados.senha
+                senha: dados.senha,
+                TipoUsuario: dados.tipoUsuario
             });
-            res.send(resposta);
+            res.json({
+                ok: true,
+                mensagem: "Usuario cadastrado com sucesso."
+            });
         }
         catch (error) {
             if (error == "SequelizeUniqueConstraintError: Validation error") {
                 res.json({
                     ok: false,
-                    menssagem: "Email já cadastrado."
+                    mensagem: "Email já cadastrado."
                 });
             }
             else {
                 res.json({
                     ok: false,
-                    menssagem: error
+                    mensagem: error
                 });
             }
         }
@@ -53,7 +57,7 @@ UsuarioController.patch("/AtualizarUsuario", (req, res) => __awaiter(void 0, voi
     if (req.body.constructor === Object && Object.keys(req.body).length === 0) {
         res.json({
             ok: false,
-            menssagem: "Por favor, preencha os dados para atualizar o cadastro."
+            mensagem: "Por favor, preencha os dados para atualizar o cadastro."
         });
     }
     else {
@@ -68,13 +72,13 @@ UsuarioController.patch("/AtualizarUsuario", (req, res) => __awaiter(void 0, voi
                     } });
                 res.json({
                     ok: true,
-                    menssagem: "Usuario atualizado com sucesso"
+                    mensagem: "Usuario atualizado com sucesso"
                 });
             }
             else {
                 res.json({
                     ok: false,
-                    menssagem: "Usuario não encontrado"
+                    mensagem: "Usuario não encontrado"
                 });
             }
         }));

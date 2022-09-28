@@ -5,6 +5,31 @@ import "./cadastro_usuario.css"
 import { faEnvelope,faLock, faUserCircle } from '@fortawesome/free-solid-svg-icons'
 
 const CadastroUsuario = () => {
+    var handleCadastroUsuario = function(e){
+        e.preventDefault();
+        var dados = {}
+        dados.email = document.getElementById('email').value;
+        dados.nome = document.getElementById('username').value;
+        dados.senha = document.getElementById('senha').value
+        if(document.getElementById('dot-1').checked){
+            dados.tipoUsuario = 1
+        }else if(document.getElementById('dot-2').checked){
+            dados.tipoUsuario = 2
+        }
+        console.log(dados)
+        fetch("/CadastrarUsuario", {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json;charset=utf-8'
+          },
+        body: JSON.stringify(dados)
+        }).then((resposta)=>resposta.json()).then((data)=>{
+            alert(data.mensagem)
+            if(data.ok){
+                window.location.href = '/home';
+            }
+        })
+    }
     return ( 
         <div id="form">
         <a href="./"><FontAwesomeIcon icon={faArrowLeft}/></a>      
@@ -22,13 +47,13 @@ const CadastroUsuario = () => {
                 <div className="category">
 
                     <label for="dot-1">
-                        <span className="dot one"></span>
+                        <span className="dot one" ></span>
                         <span className="reversor">Cliente</span>
                     </label>
 
                     <label for="dot-2">
-                        <span className="dot two"></span>
-                        <span className="reversor">Administrador</span>
+                        <span className="dot two" ></span>
+                        <span className="reversor" >Administrador</span>
                     </label>
 
                 </div>
@@ -36,7 +61,7 @@ const CadastroUsuario = () => {
             </div>
 
             <div id="btn">
-                <button type="submit">Cadastrar</button>
+                <button type="submit" onClick={handleCadastroUsuario}>Cadastrar</button>
 
             </div>
         </form>

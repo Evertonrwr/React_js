@@ -16,5 +16,8 @@ const UsuarioModel = conexao_1.default.define("usuarios", {
     senha: {
         type: sequelize.Sequelize.STRING
     },
+    TipoUsuario: {
+        type: sequelize.Sequelize.INTEGER
+    },
 });
 exports.default = UsuarioModel;

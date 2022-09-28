@@ -1,6 +1,8 @@
 import e from "express";
 import Router from "express";
 import UsuarioModel from "../Models/UsuarioModel";
+
+
 const UsuarioController = Router();
 
 
@@ -9,26 +11,29 @@ UsuarioController.post("/CadastrarUsuario", async (req, res)=>{
     if (req.body.constructor === Object && Object.keys(req.body).length === 0){
         res.json({
             ok: false, 
-            menssagem:"Por favor, preencha os dados para realizar o cadastro."})
+            mensagem:"Por favor, preencha os dados para realizar o cadastro."})
         
     }else{
         try{
-            var resposta = await UsuarioModel.create({
+             await UsuarioModel.create({
                  email: dados.email,
                  nome: dados.nome,
-                 senha: dados.senha
+                 senha: dados.senha,
+                 TipoUsuario : dados.tipoUsuario
              });
-             res.send(resposta)
+             res.json({
+                ok: true, 
+                mensagem:"Usuario cadastrado com sucesso."})
  
          }catch(error){
             if(error == "SequelizeUniqueConstraintError: Validation error"){
                 res.json({
                     ok: false, 
-                    menssagem:"Email já cadastrado."})
+                    mensagem:"Email já cadastrado."})
             }else{
                 res.json({
                     ok: false, 
-                    menssagem:error})
+                    mensagem:error})
             }
              
  
@@ -41,7 +46,7 @@ UsuarioController.patch("/AtualizarUsuario", async (req, res)=>{
     if (req.body.constructor === Object && Object.keys(req.body).length === 0){
         res.json({
             ok: false, 
-            menssagem:"Por favor, preencha os dados para atualizar o cadastro."})
+            mensagem:"Por favor, preencha os dados para atualizar o cadastro."})
         
     }else{
         var email = dados.email;
@@ -56,11 +61,11 @@ UsuarioController.patch("/AtualizarUsuario", async (req, res)=>{
 
             res.json({
                 ok: true, 
-                menssagem:"Usuario atualizado com sucesso"})
+                mensagem:"Usuario atualizado com sucesso"})
           }else{
                 res.json({
                     ok: false, 
-                    menssagem:"Usuario não encontrado"})
+                    mensagem:"Usuario não encontrado"})
             }
         })
        
