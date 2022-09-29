@@ -8,21 +8,20 @@ const CadastroAeronave = () => {
     return ( 
 
         <div className="container">  
-        <a href="./"><FontAwesomeIcon icon={faArrowLeft}/></a>      
+        <a href="./home"><FontAwesomeIcon icon={faArrowLeft}/></a>      
         <div className="titulo">Cadastro de aeronaves</div>
         <FontAwesomeIcon icon={faPlane}/>
         <form action="#">
             <div className="detalhes-aeronave">
-                <InputCadastros id="Modelo-de-aeronave" type="text" placeholder="Digite o Modelo">Modelo de Aeronave</InputCadastros>
-                <InputCadastros id="Motor" type="text" placeholder="Digite o motor">Motor</InputCadastros>
-                <InputCadastros id="Certificaçao" type="text" placeholder="Digite a certificação">Certificação</InputCadastros>
-                <InputCadastros id="Peso" type="number" placeholder="Digite o peso">Peso</InputCadastros>
-                <InputCadastros id="Overspeed" type="text" placeholder="Digite o overspeed">Overspeed</InputCadastros>
-                <InputCadastros id="Flap de pouso" type="number" placeholder="Digite o Flap de pouso">Flap de pouso</InputCadastros>
+                <InputCadastros id="Modelo-de-aeronave" type="text" placeholder="Enter the Model">Aircraft Model</InputCadastros>
+                <InputCadastros id="Motor" type="text" placeholder="Enter the engine">Motor</InputCadastros>
+                <InputCadastros id="Certificaçao" type="text" placeholder="Enter the certification">Certification</InputCadastros>
+                <InputCadastros id="Peso" type="number" placeholder="Enter the weight">Reference weight</InputCadastros>
+                <InputCadastros id="Reversor" type="number" placeholder="Enter the reverser" >Reverser</InputCadastros>
 
             </div>
 
-            <div className="Reversor-details">
+            {/* <div className="Reversor-details">
                 <input type="radio" name="Reversor" id="dot-1"/>
                 <input type="radio" name="Reversor" id="dot-2"/>
                 <span className="Reversor-title">Reversor</span>
@@ -41,9 +40,9 @@ const CadastroAeronave = () => {
 
                 </div>
 
-            </div>
+            </div> */}
             <div className="button">
-                <input type="submit" value="Cadastrar"/>
+                <input type="submit" value="Register"/>
             </div>
         </form>
 

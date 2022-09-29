@@ -10,9 +10,9 @@ const Home = () => {
             <FontAwesomeIcon icon={faPlane}/>
             <form action="#">
                 <div className="cadastro-aeronave">
-                    <BotaoHome home="/Cadastro-Aeronave">Cadastro de Aeronave</BotaoHome>
-                    <BotaoHome home="/Cadastro-usuario">Cadastro de usuário</BotaoHome>
-                    <BotaoHome home="/Calculo">Cálculo</BotaoHome>
+                    <BotaoHome home="/Cadastro-Aeronave">Aircraft registration</BotaoHome>
+                    <BotaoHome home="/Cadastro-usuario">User registration</BotaoHome>
+                    <BotaoHome home="/Calculo">Calculation</BotaoHome>
                 </div>
 
             </form>

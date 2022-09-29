@@ -32,28 +32,28 @@ const CadastroUsuario = () => {
     }
     return ( 
         <div id="form">
-        <a href="./"><FontAwesomeIcon icon={faArrowLeft}/></a>      
+        <a href="./home"><FontAwesomeIcon icon={faArrowLeft}/></a>      
         <form action="">
-            <h2 className="title">Cadastrar Usuários</h2>
-            <InputLogin text="Nome" id="username" placeholder="Digite o username" type="text" icon={faUserCircle}/>
-            <InputLogin text="Email" id="email" placeholder="Digite o email" type="text" icon={faEnvelope}/>
-            <InputLogin text="Senha" id="senha" placeholder="Digite a senha" type="password" icon={faLock}/>
+            <h2 className="title">Register Users</h2>
+            <InputLogin text="Nome" id="username" placeholder="Enter username" type="text" icon={faUserCircle}/>
+            <InputLogin text="Email" id="email" placeholder="Enter email" type="text" icon={faEnvelope}/>
+            <InputLogin text="Senha" id="senha" placeholder="Enter password" type="password" icon={faLock}/>
             
             <div className="Reversor-details">
                 <input type="radio" name="Reversor" id="dot-1"/>
                 <input type="radio" name="Reversor" id="dot-2"/>
-                <span className="Reversor-title">Tipo</span>
+                <span className="Reversor-title">Type</span>
 
                 <div className="category">
 
                     <label for="dot-1">
                         <span className="dot one" ></span>
-                        <span className="reversor">Cliente</span>
+                        <span className="reversor">Client</span>
                     </label>
 
                     <label for="dot-2">
                         <span className="dot two" ></span>
-                        <span className="reversor" >Administrador</span>
+                        <span className="reversor" >Administrator</span>
                     </label>
 
                 </div>
@@ -61,7 +61,7 @@ const CadastroUsuario = () => {
             </div>
 
             <div id="btn">
-                <button type="submit" onClick={handleCadastroUsuario}>Cadastrar</button>
+                <button type="submit" onClick={handleCadastroUsuario}>Register</button>
 
             </div>
         </form>

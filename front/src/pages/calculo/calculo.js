@@ -2,73 +2,47 @@ import "./calculo.css"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowLeft,faPlaneArrival} from '@fortawesome/free-solid-svg-icons'
 import InputCadastros from "../../componentes/inputCadastros/inputCadastro";
+import NativeSelectDemo from "../../componentes/select/select";
+import SelectSlope from "../../componentes/select/selectSlope";
+import SelectFlap from "../../componentes/select/selectFlap";
+import SelectCondicao from "../../componentes/select/selectCondicao"
+import SelectIce from "../../componentes/select/selectIce";
+import SelectBk from "../../componentes/select/selectBk";
+
+const func = (tipo)=>{
+
+    if(tipo === 'flap'){
+        return <SelectFlap></SelectFlap>
+    }
+    if(tipo === 'bk'){
+        return <SelectBk></SelectBk>
+    }
+}
 
 const Calculo = () => {
     return ( 
         <div className="cont">    
-        <a href="./"><FontAwesomeIcon icon={faArrowLeft}/></a>          
-        <div className="titulo">Cálculo de pouso</div>
+        <a href="./home"><FontAwesomeIcon icon={faArrowLeft}/></a>          
+        <div className="titulo">Landing calculation</div>
         <FontAwesomeIcon icon={faPlaneArrival}/>
         <form action="#">
             <div className="detalhes-aeronave">
-                <InputCadastros id="Modelo-de-aeronave" type="text" placeholder="Digite o Modelo">Modelo de Aeronave</InputCadastros>
-                <InputCadastros id="Motor" type="text" placeholder="Digite o Motor">Motor</InputCadastros>
-                <InputCadastros id="Certificaçao" type="text" placeholder="Digite a Certificação">Certificação</InputCadastros>
-
-
-                <div className="input-box">
-                    <span className="details">Peso</span>
-                    <input type="text" placeholder="Peso da aeronave" oninput="this.value = this.value.replace(/[^0-9.]/g,'').replace(/(\..*?)\..*/g,'$1');" required/>
-                </div>
-
-                 <div className="input-box">
-                    <span className="details">Altitude da pista de pouso</span>
-                    <input type="text" placeholder="Altitude da pista de pouso" oninput="this.value = this.value.replace(/[^0-9.]/g,'').replace(/(\..*?)\..*/g,'$1');" required/>
-                </div>
-
-                <div className="input-box">
-                    <span className="details">Temperatura</span>
-                    <input type="text" placeholder="Temperatura" oninput="this.value = this.value.replace(/[^0-9.]/g,'').replace(/(\..*?)\..*/g,'$1');" required/>
-                </div>
-
-                <div className="input-box">
-                    <span className="details">Vento</span>
-                    <input type="text" placeholder="Vento" oninput="this.value = this.value.replace(/[^0-9.]/g,'').replace(/(\..*?)\..*/g,'$1');" required/>
-                </div>
-
-                <div className="input-box">
-                    <span className="details">Slope(inclinação da pista)</span>
-                    <input type="text" placeholder="Slope" oninput="this.value = this.value.replace(/[^0-9.]/g,'').replace(/(\..*?)\..*/g,'$1');" required/>
-                </div>
-
-                <div className="input-box">
-                    <span className="details">Overspeed</span>
-                    <input type="text" placeholder="Overspeed" oninput="this.value = this.value.replace(/[^0-9.]/g,'').replace(/(\..*?)\..*/g,'$1');" required/>
-                </div>
-
-                <div className="input-box">
-                    <span className="details">Flap de pouso</span>
-                    <input type="text" placeholder="Flap de pouso" oninput="this.value = this.value.replace(/[^0-9.]/g,'').replace(/(\..*?)\..*/g,'$1');" required/>
-                </div>
-
-                <div className="input-box">
-                    <span className="details">Acúmulo de gelo</span>
-                    <input type="text" placeholder="Acúmulo de gelo" oninput="this.value = this.value.replace(/[^0-9.]/g,'').replace(/(\..*?)\..*/g,'$1');" required/>
-                </div>
-
-                <div className="input-box">
-                    <span className="details">Aplicação de freio</span>
-                    <input type="text" placeholder="Aplicação de freio" required/>
-                </div>
-
-                <div className="input-box">
-                    <span className="details">Condição de pista</span>
-                    <input type="text" placeholder="Condição de pista" required/>
-                </div> 
+                    <NativeSelectDemo></NativeSelectDemo>
+                    {func('bk')}
+                    <SelectCondicao></SelectCondicao>
+                    <InputCadastros id="Peso" type="number" placeholder="Enter the weight">Weight</InputCadastros>
+                    <InputCadastros id="Altitude-pista-Pouso" type="number" placeholder="Enter the altitude">Altitude</InputCadastros>
+                    <InputCadastros id="Temperatura" type="number" placeholder="Enter the temperature">Temperature</InputCadastros>
+                    <InputCadastros id="Ventos" type="number" placeholder="Enter wind speed">Wind</InputCadastros>
+                    <SelectSlope></SelectSlope>
+                    <InputCadastros id="Overspeed" type="number" placeholder="Enter the overspeed">Overspeed</InputCadastros>
+                    {func('flap')}
+                    <SelectIce></SelectIce>
+                    <InputCadastros id="Reversor" type="number" placeholder="Enter the reverser">Reverser</InputCadastros>
 
             </div>
 
-            <div className="Reversor-details">
+            {/* <div className="Reversor-details">
                 <input type="radio" name="Reversor" id="dot-1"/>
                 <input type="radio" name="Reversor" id="dot-2"/>
                 <span className="Reversor-title">Reversor</span>
@@ -87,13 +61,13 @@ const Calculo = () => {
 
                 </div>
 
-            </div>
+            </div> */}
             <div className="button">
-                <input type="submit" value="Calcular"/>
+                <input type="submit" value="Calculate"/>
             </div>
             <div className="input_box">
-                <span className="details">Pista necessária</span>
-                <input type="text" placeholder="Resultado"/>
+                <span className="details">Necessary clue</span>
+                <input type="text" placeholder="Resultado" disabled="disabled"/>
             </div>
         </form>
     </div>
